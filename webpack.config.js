@@ -5,7 +5,7 @@ var webpack = require('webpack')
 module.exports = {
   target: 'atom',
   entry: {
-    app: './app/app.js'
+    app: './app/app.js',
   },
   output: {
     path: './build',

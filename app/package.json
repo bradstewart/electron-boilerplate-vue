@@ -10,8 +10,15 @@
     "target": "development"
   },
   "dependencies": {
+    "babel-loader": "5.4.0",
+    "babel-runtime": "5.8.34",
+    "css-loader": "0.23.0",
     "fs-jetpack": "^0.7.0",
+    "style-loader": "0.13.0",
     "vue": "^1.0.1",
-    "vue-loader": "^6.0.0"
+    "vue-hot-reload-api": "1.2.2",
+    "vue-html-loader": "1.0.0",
+    "vue-loader": "^6.0.0",
+    "webpack": "1.12.9"
   }
 }
