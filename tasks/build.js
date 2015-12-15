@@ -23,6 +23,7 @@ const filesToCopy = [
     './app/stylesheets/**/*',
     './app/background.js',
     './app/vendor/**/*',
+    './app/node_modules/**/*',
 ]
 
 // Make a dev copy of the config w/ source maps and debug enabled
