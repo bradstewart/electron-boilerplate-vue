@@ -1,0 +1,10 @@
+/** IMPORTS **/
+@import '~foundation-sites/scss/foundation.scss';
+@include foundation-everything;
+@include foundation-flex-grid; // Remove this if you want the regular float grid
+@import "./variables.scss";
+
+/** GLOBALS **/
+body{
+  color: $black;
+}
