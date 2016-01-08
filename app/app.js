@@ -1,29 +1,46 @@
-// Here is the starting point for code of your own application.
-// All stuff below is just to show you how it works. You can delete all of it.
+import scss from './stylesheets/app.scss'
 
-// Modules which you authored in this project are intended to be
-// imported through new ES6 syntax.
-import { greet } from './hello_world/hello_world'
-console.log(greet())
+import Vue from 'vue'
+import Resource from 'vue-resource'
+import Router from 'vue-router'
 
-// Node.js modules and those from npm
-// are required the same way as always.
-const app = require('remote').require('app')
-const jetpack = require('fs-jetpack').cwd(app.getAppPath())
+import App from './components/App.vue'
+import Home from './components/Home.vue'
+import About from './components/About.vue'
+import Quote from './components/Quote.vue'
 
-// Holy crap! This is browser window with HTML and stuff, but I can read
-// here files like it is node.js! Welcome to Electron world :)
-console.log(jetpack.read('package.json', 'json'))
+// Install plugins
+Vue.use(Router)
+Vue.use(Resource)
 
-const Vue = require('vue')
-// Vue.component('hello-world', require('./components/HelloWorld.vue'))
+// Set up a new router
+var router = new Router()
 
-new Vue({
-  el: "#app",
-  data: {
-    
+// Route config
+router.map({
+  '/home':{
+    name: 'home',
+    component: Home
   },
-  components: {
-    'hello-world': require('./components/HelloWorld.vue')
+  '/about':{
+    name: 'about',
+    component: About
+  },
+  '/quote':{
+    name: 'quote',
+    component: Quote
   }
 })
+
+// For every new route scroll to the top of the page
+router.beforeEach(function () {
+  window.scrollTo(0, 0)
+})
+
+// If no route is matched redirect home
+router.redirect({
+  '*': '/home'
+})
+
+// Start up our app
+router.start(App, '#app')
