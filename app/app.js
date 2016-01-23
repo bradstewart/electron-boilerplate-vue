@@ -18,11 +18,8 @@ console.log(jetpack.read('package.json', 'json'))
 const Vue = require('vue')
 // Vue.component('hello-world', require('./components/HelloWorld.vue'))
 
-new Vue({
-  el: "#app",
-  data: {
-    
-  },
+new Vue({ // eslint-disable-line no-new
+  el: '#app',
   components: {
     'hello-world': require('./components/HelloWorld.vue')
   }
