@@ -129,7 +129,7 @@ As installer [NSIS](http://nsis.sourceforge.net/Main_Page) is used. You have to 
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jakub Szwacz
+Copyright (c) 2015 Jakub Szwacz, 2016 Brad Stewart
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
