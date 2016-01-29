@@ -1,7 +1,7 @@
-export var greet = function () {
-    return 'Hello World!';
-};
+export let greet = function () {
+  return 'Hello World!'
+}
 
-export var bye = function () {
-    return 'See ya!';
-};
+export let bye = function () {
+  return 'See ya!'
+}

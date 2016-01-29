@@ -23,5 +23,9 @@
     "release": "gulp release --env=production",
     "start": "node ./tasks/start",
     "test": "node ./tasks/start --env=test"
+  },
+  "dependencies": {
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.2.0"
   }
 }
