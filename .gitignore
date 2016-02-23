@@ -1,9 +1,17 @@
 node_modules
+
+# Logs
+logs
 *.log
+*.log*
+# Runtime data
+pids
+*.pid
+*.seed
+
 .DS_Store
 Thumbs.db
 
-/app/spec.js
-/build/
+/dist/
 /releases/
 /tmp/

@@ -15,12 +15,13 @@ const jetpack = require('fs-jetpack').cwd(app.getAppPath())
 // here files like it is node.js! Welcome to Electron world :)
 console.log(jetpack.read('package.json', 'json'))
 
-const Vue = require('vue')
-// Vue.component('hello-world', require('./components/HelloWorld.vue'))
+// Import Vue and Vue components
+import Vue from 'vue'
+import HelloWorld from './components/HelloWorld'
 
-new Vue({ // eslint-disable-line no-new
+new Vue({ 
   el: '#app',
   components: {
-    'hello-world': require('./components/HelloWorld.vue')
+    HelloWorld
   }
 })
