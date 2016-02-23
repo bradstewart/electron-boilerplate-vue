@@ -3,16 +3,16 @@
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 
-var app = require('app')
-var BrowserWindow = require('browser-window')
-var env = require('./vendor/electron_boilerplate/env_config')
-var devHelper = require('./vendor/electron_boilerplate/dev_helper')
-var windowStateKeeper = require('./vendor/electron_boilerplate/window_state')
+const electron = require('electron')
+const app = electron.app 
+const BrowserWindow = electron.BrowserWindow
+
+const windowState = require('./vendor/electron_boilerplate/window_state')
 
 var mainWindow
 
 // Preserver of the window size and position between app launches.
-var mainWindowState = windowStateKeeper('main', {
+var mainWindowState = windowState('main', {
   width: 1000,
   height: 600
 })
@@ -30,14 +30,13 @@ app.on('ready', function () {
     mainWindow.maximize()
   }
 
-  if (env.name === 'test') {
+  if (process.env.NODE_ENV === 'test') {
     mainWindow.loadUrl('file://' + __dirname + '/spec.html')
   } else {
     mainWindow.loadUrl('file://' + __dirname + '/app.html')
   }
 
-  if (env.name !== 'production') {
-    devHelper.setDevMenu()
+  if (process.env.NODE_ENV !== 'production') {
     mainWindow.openDevTools()
   }
 

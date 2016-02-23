@@ -13,15 +13,13 @@
 
 <script>
 const os = require('os')
-// window.env contains data from config/env_XXX.json file.
-const envName = window.env.name
 
 export default {
   data () {
     return {
       greet: 'Hello World!',
       platform: os.platform(),
-      envName: envName
+      envName: process.env.NODE_ENV
     }
   }
 }

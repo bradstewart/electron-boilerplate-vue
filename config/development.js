@@ -1,0 +1,4 @@
+module.exports = {
+  name: "development",
+  description: "Add here any environment specific stuff you like."
+}

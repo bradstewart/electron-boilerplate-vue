@@ -6,15 +6,23 @@
 
     <link href="./stylesheets/main.css" rel="stylesheet" type="text/css">
 
-    <script src="vendor/electron_boilerplate/env_config.js"></script>
-    <script src="vendor/electron_boilerplate/context_menu.js"></script>
     <script src="vendor/electron_boilerplate/external_links.js"></script>
+    <script>
+      // Setup jQuery and relevant plugins. 
+      window.$ = window.jQuery = require('jquery')
+  </script>
 </head>
 <body>
     <div id="app" class="container">
         <hello-world></hello-world>
     </div>
     
-    <script src="app.js"></script>
+    <script>
+      if (process.env.HOT) {
+        $.getScript('http://localhost:3000/dist/bundle.js')
+      } else {
+        require('./dist/bundle.js')
+      }
+    </script>
 </body>
 </html>
