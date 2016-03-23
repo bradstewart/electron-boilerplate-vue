@@ -4,6 +4,10 @@ var baseConfig = require('./webpack.base.conf')
 var cssLoaders = require('./css-loaders')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
+baseConfig.entry = {
+  app: './app/main.js'
+}
+
 // add hot-reload related code to entry chunks
 Object.keys(baseConfig.entry).forEach(function (name) {
   baseConfig.entry[name] = ['./build/dev-client'].concat(baseConfig.entry[name])
@@ -39,7 +43,7 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: './app/main.html',
-      excludeChunks: ['background'],
+      // excludeChunks: ['background'],
       inject: true
     })
   ]

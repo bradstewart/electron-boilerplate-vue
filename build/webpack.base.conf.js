@@ -3,10 +3,6 @@ var projectRoot = path.resolve(__dirname, '../')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: {
-    app: './app/main.js',
-    background: './app/background.js'
-  },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js'

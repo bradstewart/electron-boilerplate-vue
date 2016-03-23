@@ -10,6 +10,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var SOURCE_MAP = true
 
 module.exports = merge(baseConfig, {
+  entry: {
+    app: './app/main.js',
+    background: './app/background.js'
+  },
   devtool: SOURCE_MAP ? '#source-map' : false,
   output: {
     // naming output files with hashes for better caching.
