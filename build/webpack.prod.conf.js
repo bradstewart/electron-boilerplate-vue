@@ -4,6 +4,7 @@ var baseConfig = require('./webpack.base.conf')
 var cssLoaders = require('./css-loaders')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
@@ -28,6 +29,10 @@ module.exports = merge(baseConfig, {
     })
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './app/package.json' },
+      { from: './static', to: 'static' }
+    ]),
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': {

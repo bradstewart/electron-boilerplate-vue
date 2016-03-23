@@ -1,7 +1,7 @@
 var express = require('express')
 var webpack = require('webpack')
-var config = require('./webpack.dev-main.conf')
 var proxyMiddleware = require('http-proxy-middleware')
+var config = require('./webpack.dev-main.conf')
 
 var app = express()
 var compiler = webpack(config)

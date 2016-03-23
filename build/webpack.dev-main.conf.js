@@ -43,7 +43,6 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: './app/main.html',
-      // excludeChunks: ['background'],
       inject: true
     })
   ]
