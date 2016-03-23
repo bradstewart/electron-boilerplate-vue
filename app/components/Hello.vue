@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }} from app {{ appName }} running on {{ platform }}!</h1>
+    <h1>{{ msg }}</h1>
+    <span> from {{ appName }} running on {{ platform }} </span>
   </div>
 </template>
 
