@@ -1,7 +1,7 @@
 {
   "scripts": {
     "postinstall": "cd app && npm install",
-    "dev": "node build/dev-runner.js",
+    "start": "node build/dev-runner.js",
     "dev:server": "node build/dev-server.js",
     "dev:client": "cross-env HOT=1 webpack --hide-modules --config build/webpack.dev-background.conf.js && cross-env HOT=1 electron ./dist",
     "build": "rimraf dist && mkdirp dist cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
