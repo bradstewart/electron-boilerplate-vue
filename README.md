@@ -1,13 +1,19 @@
 electron-boilerplate-vue
 ==============
-Comprehensive boilerplate application for [Electron runtime](http://electron.atom.io) and [Vue.js](http://vuejs.org). The majority of this project is the awesome work by @szwacz on his original electron-boilerplate. I simply changed a few bits to make Vue work.
+Comprehensive boilerplate application for [Electron runtime](http://electron.atom.io) and [Vue.js](http://vuejs.org). This project is based on [vue-templates/webpack](https://github.com/vuejs-templates/webpack) and the awesome work by @szwacz on [electron-boilerplate](https://github.com/szwacz/electron-boilerplate).
+
+**This README is a work in progress.**
 
 Scope of this project:
 
 - Provide basic structure of the application so you can much easier grasp what should go where.
 - Give you cross-platform development environment, which works the same way on OSX, Windows and Linux.
+- Build scripts for the application using .vue components for production and development with Hot Module Reload.
+- Package scripts to generate executable files (.app, .exe).
+- Test scripts for both unit and end-to-end testing.
 - Generate ready for distribution installers of your app for all supported operating systems.
-- Set up build scripts for Vue.js and .vue components.
+
+Note: Installer generation is currently NOT implemented. Once electron-builder stablizes, I will add that to the project. 
 
 
 # Quick start
@@ -45,11 +51,11 @@ Sits on path: `electron-boilerplate-vue/app/package.json`. This is **real** mani
 ### Project's folders
 
 - `app` - code of your application goes here.
-- `config` - place for you to declare environment specific stuff.
-- `build` - in this folder lands built, runnable application.
-- `releases` - ready for distribution installers will land here.
-- `resources` - resources for particular operating system.
-- `tasks` - build and development environment scripts.
+- `static` - static files which are not processed by webpack.
+- `build` - build scripts, configuration files, and resources.
+- `dist` - webpacked and runnable Electron app.
+- `releases` - ready for distribution installers and executables.
+- `test` - test configuration, runners, and specs.
 
 
 # Development
@@ -75,54 +81,16 @@ cd app
 npm install name_of_npm_module --save
 ```
 
-#### Adding native npm modules to your app
-
-If you want to install native module you need to compile it agains Electron, not Node.js you are firing in command line by typing `npm install` [(Read more)](https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md).
-```
-npm run app-install -- name_of_npm_module
-```
-Of course this method works also for pure-js modules, so you can use it all the time if you're able to remember such an ugly command.
-
-#### Working with modules
-
-Electron ecosystem (because it's a merge of node.js and browser) gives you a little trouble while working with modules. ES6 modules have nice syntax and are the future, so they're utilized in this project (via webpack). But at the same time node.js and npm still rely on the CommonJS syntax. So in this project you need to use both:
-```js
-// Modules which you authored in this project are intended to be
-// imported through new ES6 syntax.
-import { myStuff } from './my_lib/my_stuff';
-
-// Node.js modules are loaded the old way with require().
-var fs = require('fs');
-
-// And all modules which you installed from npm
-// also need to be required.
-var moment = require('moment');
-```
-
-#### Unit tests
-
-electron-boilerplate-vue has preconfigured [jasmine](http://jasmine.github.io/2.0/introduction.html) unit test runner. To run it go with standard:
-```
-npm test
-```
-You don't have to declare paths to spec files in any particular place. The runner will search through the project for all `*.spec.js` files and include them automatically.
-
 
 # Making a release
 
-**Note:** There are various icon and bitmap files in `resources` directory. Those are used in installers and are intended to be replaced by your own graphics.
+**Note:** There are various icon and bitmap files in the `build/resources` directory. Those are used in installers and are intended to be replaced by your own graphics.
 
 To make ready for distribution installer use command:
 ```
 npm run release
 ```
-It will start the packaging process for operating system you are running this command on. Ready for distribution file will be outputted to `releases` directory.
-
-You can create Windows installer only when running on Windows, the same is true for Linux and OSX. So to generate all three installers you need all three operating systems.
-
-
-## Special precautions for Windows
-As installer [NSIS](http://nsis.sourceforge.net/Main_Page) is used. You have to install it (version 3.0), and add NSIS folder to PATH in Environment Variables, so it is reachable to scripts in this project (path should look something like `C:/Program Files (x86)/NSIS`).
+This process uses [electron-packager](https://github.com/electron-userland/electron-packager). See their documentation on packaging for various operating systems. 
 
 
 # License
