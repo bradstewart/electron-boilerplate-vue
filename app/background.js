@@ -1,29 +1,36 @@
-'use strict'
+// This is main process of Electron, started as first thing when your
+// app starts. This script is running through entire life of your application.
+// It doesn't have any windows which you can see on screen, but we can open
+// window from here.
 
-const path = require('path')
-const menubar = require('menubar')
+import { app, BrowserWindow } from 'electron'
+import path from 'path'
 
-const index = process.env.HOT
-  ? 'http://localhost:8080/main.html'
-  : 'file://' + path.join(__dirname, 'main.html')
+let mainWindow
 
-/**
- * Create the menubar instance.
- */
-const mb = menubar({
-  index: index,
-  // icon: path.join(__dirname, 'assets', 'IconTemplate.png'),
-  height: 400,
-  width: 400
-})
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({
+    width: 1024,
+    height: 768
+  })
 
-mb.on('ready', function ready () {
-  console.log('app is ready')
-})
+  // Load the HTML file directly from the webpack dev server if
+  // hot reload is enabled, otherwise load the local file.
+  const mainURL = process.env.HOT
+    ? 'http://localhost:8080/main.html'
+    : 'file://' + path.join(__dirname, 'main.html')
 
-mb.on('after-create-window', function () {
-  if (process.env.NODE_ENV === 'development') {
-    mb.window.openDevTools()
+  mainWindow.loadURL(mainURL)
+
+  if (process.env.NODE_ENV !== 'production') {
+    mainWindow.openDevTools()
   }
-  console.log('window is loaded')
+
+  mainWindow.on('closed', () => {
+    mainWindow = null
+  })
+})
+
+app.on('window-all-closed', () => {
+  app.quit()
 })
