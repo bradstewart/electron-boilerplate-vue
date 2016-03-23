@@ -4,8 +4,7 @@ node_modules/
 app/dist/
 dist/
 releases/
-npm-debug.log
-npm*.log
+npm-debug.log*
 selenium-debug.log
 test/unit/coverage
 test/e2e/reports
