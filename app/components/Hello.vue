@@ -7,7 +7,6 @@
 <script>
   import { remote } from 'electron'
   import os from 'os'
-  import Hello from './components/Hello'
 
   export default {
     data () {
