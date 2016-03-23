@@ -4,8 +4,8 @@ var webpack = require('webpack')
 
 module.exports = {
   entry: {
-    app: './src/main.js',
-    background: './src/background.js'
+    app: './app/main.js',
+    background: './app/background.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -23,7 +23,7 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'src': path.resolve(__dirname, '../src')
+      'app': path.resolve(__dirname, '../app')
     }
   },
   resolveLoader: {
