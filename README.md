@@ -2,7 +2,7 @@ electron-boilerplate-vue
 ==============
 Comprehensive boilerplate application for [Electron runtime](http://electron.atom.io) and [Vue.js](http://vuejs.org). This project is based on [vue-templates/webpack](https://github.com/vuejs-templates/webpack) and the awesome work by @szwacz on [electron-boilerplate](https://github.com/szwacz/electron-boilerplate).
 
-**This README is a work in progress.**
+**This README is a work in progress.** This version is a large departure from the previous iteration. If you're looking for the old version, see [this branch](https://github.com/bradstewart/electron-boilerplate-vue/tree/legacy).
 
 Scope of this project:
 
