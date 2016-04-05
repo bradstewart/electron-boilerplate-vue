@@ -5,13 +5,13 @@ var cssLoaders = require('./css-loaders')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 baseConfig.entry = {
-  app: './app/main.js'
+  app: [
+    './build/dev-client',
+    './tools/vue-devtools/hook.js',
+    './tools/vue-devtools/backend.js',
+    './app/main.js'
+  ]
 }
-
-// add hot-reload related code to entry chunks
-Object.keys(baseConfig.entry).forEach(function (name) {
-  baseConfig.entry[name] = ['./build/dev-client'].concat(baseConfig.entry[name])
-})
 
 module.exports = merge(baseConfig, {
   // eval-source-map is faster for development
