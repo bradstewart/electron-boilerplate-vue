@@ -10,7 +10,8 @@ baseConfig.entry = {
     './tools/vue-devtools/hook.js',
     './tools/vue-devtools/backend.js',
     './app/main.js'
-  ]
+  ],
+  devtools: './tools/vue-devtools/devtools.js'
 }
 
 module.exports = merge(baseConfig, {
@@ -43,6 +44,13 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: './app/main.html',
+      chunks: ['app'],
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'devtools.html',
+      template: './tools/vue-devtools/index.html',
+      chunks: ['devtools'],
       inject: true
     })
   ]
