@@ -37,7 +37,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'eslint',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: /vue-devtools|node_modules/
       }
     ],
     loaders: [
@@ -49,7 +49,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: /vue-devtools|node_modules/
       },
       {
         test: /\.json$/,
