@@ -48,6 +48,9 @@ module.exports = {
       //     '^/api': ''
       //   }
       // }
-    }
+    },
+
+    // Whether or not open another Electron window with vue-devtools.
+    vueDevTools: true
   }
 }

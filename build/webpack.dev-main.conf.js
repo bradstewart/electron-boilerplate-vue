@@ -7,14 +7,7 @@ var cssLoaders = require('./css-loaders')
 
 var devServerUrl = 'http://localhost:' + config.dev.port + '/'
 
-// webpackBaseConfig.
-
-// add hot-reload related code to entry chunks
-// Object.keys(webpackBaseConfig.entry).forEach(function (name) {
-//   webpackBaseConfig.entry[name] = [].concat(webpackBaseConfig.entry[name])
-// })
-
-module.exports = merge(webpackBaseConfig, {
+var webpackConfig = merge(webpackBaseConfig, {
   entry: {
     app: [
       './build/dev-client?path=' + devServerUrl + '__webpack_hmr&noInfo=true&reload=true',
@@ -50,7 +43,26 @@ module.exports = merge(webpackBaseConfig, {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: './app/main.html',
+      excludeChunks: ['devtools'],
       inject: true
     })
   ]
 })
+
+if (config.dev.vueDevTools) {
+  webpackConfig.entry.app.unshift(
+    './tools/vue-devtools/hook.js',
+    './tools/vue-devtools/backend.js'
+  )
+  webpackConfig.entry.devtools = './tools/vue-devtools/devtools.js'
+
+  webpackConfig.plugins.push(new HtmlWebpackPlugin({
+    filename: 'devtools.html',
+    template: './tools/vue-devtools/index.html',
+    chunks: ['devtools'],
+    inject: true
+  }))
+}
+
+module.exports = webpackConfig 
+
