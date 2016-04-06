@@ -3,7 +3,7 @@
     "postinstall": "cd app && npm install",
     "start": "node build/dev-runner.js",
     "dev:server": "node build/dev-server.js",
-    "dev:client": "cross-env HOT=1 webpack --hide-modules --config build/webpack.dev-background.conf.js && cross-env HOT=1 electron ./dist",
+    "dev:client": "cross-env HOT=1 webpack --hide-modules --config build/webpack.dev-background.conf.js && cross-env HOT=1 electron",
     "build": "rimraf dist && mkdirp dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "package": "node build/package.js",
     "package:osx": "node build/package.js --platform=darwin --arch=x64",
