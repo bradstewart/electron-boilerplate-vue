@@ -17,7 +17,7 @@ app.on('ready', () => {
   // Load the HTML file directly from the webpack dev server if
   // hot reload is enabled, otherwise load the local file.
   const mainURL = process.env.HOT
-    ? 'http://localhost:8080/main.html'
+    ? `http://localhost:${process.env.PORT}/main.html`
     : 'file://' + path.join(__dirname, 'main.html')
 
   mainWindow.loadURL(mainURL)
