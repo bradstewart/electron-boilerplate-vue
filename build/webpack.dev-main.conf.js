@@ -44,7 +44,7 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: './app/main.html',
-      chunks: ['app'],
+      excludeChunks: ['devtools'],
       inject: true
     }),
     new HtmlWebpackPlugin({
