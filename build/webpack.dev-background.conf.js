@@ -1,17 +1,18 @@
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
-var baseConfig = require('./webpack.base.conf')
+var webpackBaseConfig = require('./webpack.base.conf')
+var config = require('../config')
 
 // var cssLoaders = require('./css-loaders')
 // var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
-// Object.keys(baseConfig.entry).forEach(function (name) {
-//   baseConfig.entry[name] = ['./build/dev-client'].concat(baseConfig.entry[name])
+// Object.keys(webpackBaseConfig.entry).forEach(function (name) {
+//   webpackBaseConfig.entry[name] = ['./build/dev-client'].concat(webpackBaseConfig.entry[name])
 // })
 
-module.exports = merge(baseConfig, {
+module.exports = merge(webpackBaseConfig, {
   entry: {
     background: './app/background.js'
   },
@@ -31,7 +32,8 @@ module.exports = merge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"development"',
-        HOT: JSON.stringify(process.env.HOT)
+        HOT: JSON.stringify(process.env.HOT),
+        PORT: JSON.stringify(process.env.PORT || config.dev.port)
       }
     }),
 

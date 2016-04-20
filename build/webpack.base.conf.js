@@ -1,10 +1,14 @@
 var path = require('path')
-var projectRoot = path.resolve(__dirname, '../')
 var webpack = require('webpack')
+var config = require('../config')
+var cssLoaders = require('./css-loaders')
+var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
+  // Note: entry points are added by environment-specific configs.
+
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: config.build.outputRoot,
     filename: '[name].js'
   },
   // Use target 'node' so that __dirname works properly. We then need
@@ -19,7 +23,7 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'app': path.resolve(__dirname, '../app')
+      app: path.resolve(__dirname, '../app')
     }
   },
   resolveLoader: {
@@ -37,7 +41,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'eslint',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: /vue-devtools|node_modules/
       }
     ],
     loaders: [
@@ -49,7 +53,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: /vue-devtools|node_modules/
       },
       {
         test: /\.json$/,
@@ -60,11 +64,11 @@ module.exports = {
         loader: 'vue-html'
       },
       {
-        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
-          name: '[name].[ext]?[hash:7]'
+          name: path.join(config.build.assetsSubDirectory, '[name].[ext]')
         }
       }
     ]
@@ -84,6 +88,9 @@ module.exports = {
       'shell'
     ])
   ],
+  vue: {
+    loaders: cssLoaders()
+  },
   eslint: {
     formatter: require('eslint-friendly-formatter')
   }

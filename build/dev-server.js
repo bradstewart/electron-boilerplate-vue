@@ -1,19 +1,19 @@
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var config = require('./webpack.dev-main.conf')
+var webpackConfig = require('./webpack.dev-main.conf')
+var config = require('../config')
 
 var app = express()
-var compiler = webpack(config)
+var compiler = webpack(webpackConfig)
 
+var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
-var proxyTable = {
-  // '/api': 'http://localhost:3000'
-}
+var proxyTable = config.dev.proxyTable
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath,
+  publicPath: webpackConfig.output.publicPath,
   stats: {
     colors: true,
     chunks: false
@@ -51,10 +51,10 @@ app.use(hotMiddleware)
 // serve pure static assets
 app.use('/static', express.static('./static'))
 
-module.exports = app.listen(8080, function (err) {
+module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:8080')
+  console.log('Listening at http://localhost:' + port)
 })
