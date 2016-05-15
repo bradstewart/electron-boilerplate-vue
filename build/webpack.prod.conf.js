@@ -26,7 +26,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: './app/package.json' },
+      { from: './app/package.json', to: '.' },
       { from: './static', to: 'static' }
     ]),
     // http://vuejs.github.io/vue-loader/workflow/production.html
