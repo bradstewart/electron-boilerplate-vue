@@ -25,6 +25,17 @@ cd electron-boilerplate-vue
 npm install
 npm start
 ```
+
+For Chinese developer
+```
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+git clone https://github.com/bradstewart/electron-boilerplate-vue.git
+cd electron-boilerplate-vue
+npm install
+npm start
+```
+or if you are working with Windows,replace `ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"` with `set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/`
+
 ... and boom! You have running desktop application on your screen.
 
 # Structure of the project
