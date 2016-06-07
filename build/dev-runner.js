@@ -13,7 +13,7 @@ var END = '\x1b[0m'
 function format (command, data, color) {
   return color + command + END +
     '  ' + // Two space offset
-    data.trim().replace(/\n/g, '\n' + repeat(' ', command.length + 2)) +
+    data.toString().trim().replace(/\n/g, '\n' + repeat(' ', command.length + 2)) +
     '\n'
 }
 
