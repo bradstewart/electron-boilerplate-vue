@@ -6,6 +6,8 @@
 var exec = require('child_process').exec
 var config = require('../config')
 
+var kill = require('tree-kill')
+
 var YELLOW = '\x1b[33m'
 var BLUE = '\x1b[34m'
 var END = '\x1b[0m'
@@ -43,9 +45,8 @@ function run (command, color) {
 
 function exit (code) {
   children.forEach(function (child) {
-    child.kill()
+    kill(child.pid)
   })
-  process.exit(code)
 }
 
 // Run the client and the server
