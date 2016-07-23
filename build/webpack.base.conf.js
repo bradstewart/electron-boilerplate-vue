@@ -68,7 +68,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: path.join(config.build.assetsSubDirectory, '[name].[ext]')
+          name: path.join(config.build.assetsSubDirectory, '[name].[ext]').replace('\\', '/')
         }
       }
     ]
