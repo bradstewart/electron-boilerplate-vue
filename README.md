@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/bradstewart/electron-boilerplate-vue/tree/master.svg?style=shield)](https://circleci.com/gh/bradstewart/electron-boilerplate-vue/tree/master)
+[![codecov](https://codecov.io/gh/bradstewart/electron-boilerplate-vue/branch/master/graph/badge.svg)](https://codecov.io/gh/bradstewart/electron-boilerplate-vue)
+
+
 electron-boilerplate-vue
 ==============
 Comprehensive boilerplate application for [Electron runtime](http://electron.atom.io) and [Vue.js](http://vuejs.org). This project is based on [vue-templates/webpack](https://github.com/vuejs-templates/webpack) and the awesome work by @szwacz on [electron-boilerplate](https://github.com/szwacz/electron-boilerplate).
