@@ -1,5 +1,5 @@
-[![CircleCI](https://circleci.com/gh/bradstewart/electron-boilerplate-vue/tree/master.svg?style=shield)](https://circleci.com/gh/bradstewart/electron-boilerplate-vue/tree/master)
-[![codecov](https://codecov.io/gh/bradstewart/electron-boilerplate-vue/branch/master/graph/badge.svg)](https://codecov.io/gh/bradstewart/electron-boilerplate-vue)
+[![Dependency Status](https://david-dm.org/bradstewart/electron-boilerplate-vue.svg)](https://david-dm.org/bradstewart/electron-boilerplate-vue)
+[![devDependency Status](https://david-dm.org/bradstewart/electron-boilerplate-vue/dev-status.svg)](https://david-dm.org/bradstewart/electron-boilerplate-vue#info=devDependencies)
 
 
 electron-boilerplate-vue
