@@ -1,3 +1,7 @@
+[![Dependency Status](https://david-dm.org/bradstewart/electron-boilerplate-vue.svg)](https://david-dm.org/bradstewart/electron-boilerplate-vue)
+[![devDependency Status](https://david-dm.org/bradstewart/electron-boilerplate-vue/dev-status.svg)](https://david-dm.org/bradstewart/electron-boilerplate-vue#info=devDependencies)
+
+
 electron-boilerplate-vue
 ==============
 Comprehensive boilerplate application for [Electron runtime](http://electron.atom.io) and [Vue.js](http://vuejs.org). This project is based on [vue-templates/webpack](https://github.com/vuejs-templates/webpack) and the awesome work by @szwacz on [electron-boilerplate](https://github.com/szwacz/electron-boilerplate).
