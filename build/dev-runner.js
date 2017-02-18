@@ -51,4 +51,4 @@ function exit (code) {
 
 // Run the client and the server
 run('npm run dev:server', YELLOW)
-run('npm run dev:client -- ' + config.build.outputRoot, BLUE)
+run(`npm run dev:client -- "${config.build.outputRoot}"`, BLUE)
