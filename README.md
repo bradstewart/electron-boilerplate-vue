@@ -13,7 +13,7 @@ Scope of this project:
 - Test scripts for both unit and end-to-end testing.
 - Generate ready for distribution installers of your app for all supported operating systems.
 
-Note: Installer generation is currently NOT implemented. Once electron-builder stablizes, I will add that to the project. 
+> **Note:**  Installer generation is currently NOT implemented. Once electron-builder stablizes, I will add that to the project. 
 
 
 # Quick start
@@ -84,7 +84,7 @@ npm install name_of_npm_module --save
 
 # Making a release
 
-**Note:** There are various icon and bitmap files in the `build/resources` directory. Those are used in installers and are intended to be replaced by your own graphics.
+> **Note:** There are various icon and bitmap files in the `build/resources` directory. Those are used in installers and are intended to be replaced by your own graphics.
 
 To make ready for distribution installer use command:
 ```
